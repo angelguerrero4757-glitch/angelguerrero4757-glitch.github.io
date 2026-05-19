@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Construction Company</title>
+  <title>Your Construction Company</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -38,6 +38,7 @@
       opacity: 1;
     }
 
+    /* HERO */
     .hero {
       padding: 120px 10%;
       text-align: center;
@@ -58,7 +59,7 @@
     }
 
     .hero h1 {
-      font-size: 52px;
+      font-size: 50px;
       margin-bottom: 10px;
     }
 
@@ -79,6 +80,7 @@
       text-decoration: none;
     }
 
+    /* SECTIONS */
     section {
       padding: 80px 10%;
     }
@@ -88,6 +90,7 @@
       margin-bottom: 40px;
     }
 
+    /* GRID */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -105,16 +108,36 @@
       border-radius: 12px;
     }
 
+    /* CONTACT */
     .contact {
       text-align: center;
       background: #111827;
     }
 
-    .contact a {
-      color: #fbbf24;
-      text-decoration: none;
-      display: block;
+    input, textarea {
+      width: 100%;
+      padding: 12px;
       margin-top: 10px;
+      border-radius: 8px;
+      border: none;
+      font-family: inherit;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px 20px;
+      background: #fbbf24;
+      border: none;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .google {
+      margin-top: 15px;
+      display: inline-block;
+      color: #38bdf8;
+      text-decoration: none;
     }
 
     footer {
@@ -132,18 +155,20 @@
   <nav>
     <a href="#services">Services</a>
     <a href="#work">Projects</a>
-    <a href="#contact">Contact</a>
+    <a href="#contact">Quote</a>
   </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <h1>Reliable Construction You Can Trust</h1>
-    <p>We build durable, high-quality structures with precision, safety, and professionalism.</p>
-    <a class="btn" href="#contact">Get a Free Quote</a>
+    <p>We build strong, high-quality structures with precision, safety, and professionalism.</p>
+    <a class="btn" href="#contact">Request a Quote</a>
   </div>
 </section>
 
+<!-- SERVICES -->
 <section id="services">
   <h2>Our Services</h2>
   <div class="grid">
@@ -154,6 +179,7 @@
   </div>
 </section>
 
+<!-- WORK -->
 <section id="work">
   <h2>Our Projects</h2>
   <div class="grid gallery">
@@ -163,20 +189,35 @@
   </div>
 </section>
 
+<!-- CONTACT / QUOTE FORM -->
 <section id="contact" class="contact">
-  <h2>Contact Us</h2>
+  <h2>Request a Free Quote</h2>
 
-  <p>📍 Houston, TX</p>
-  <p>📞 (555) 123-4567</p>
-  <p>✉️ yourcompany@email.com</p>
+  <p>Fill out the form below and we will contact you by phone or email.</p>
 
-  <a href="https://www.google.com/maps" target="_blank">
+  <form action="https://formspree.io/f/your-id-here" method="POST">
+    <input type="text" name="name" placeholder="Full Name" required>
+    <input type="tel" name="phone" placeholder="Phone Number" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <input type="text" name="project" placeholder="Type of Project" required>
+    <textarea name="message" rows="5" placeholder="Describe your project..." required></textarea>
+
+    <button type="submit">Request Quote</button>
+  </form>
+
+  <a class="google" href="https://www.google.com/maps" target="_blank">
     Leave us a Google Review →
   </a>
+
+  <p style="margin-top:20px;">
+    📞 (555) 123-4567<br>
+    ✉️ yourbusiness@email.com<br>
+    📍 Houston, TX
+  </p>
 </section>
 
 <footer>
-  © 2026 Your Construction Company
+  © 2026 Your Construction Company. All rights reserved.
 </footer>
 
 </body>
