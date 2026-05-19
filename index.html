@@ -38,11 +38,11 @@
       opacity: 1;
     }
 
-    /* HERO */
+    /* HERO WITH YOUR WORKERS IMAGE */
     .hero {
       padding: 120px 10%;
       text-align: center;
-      background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd') center/cover;
+      background: url('images/workers.jpg') center/cover;
       position: relative;
     }
 
@@ -80,7 +80,6 @@
       text-decoration: none;
     }
 
-    /* SECTIONS */
     section {
       padding: 80px 10%;
     }
@@ -90,7 +89,6 @@
       margin-bottom: 40px;
     }
 
-    /* GRID */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -108,7 +106,6 @@
       border-radius: 12px;
     }
 
-    /* CONTACT */
     .contact {
       text-align: center;
       background: #111827;
@@ -145,6 +142,13 @@
       padding: 20px;
       color: #94a3b8;
     }
+
+    .price {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 10px;
+      color: #fbbf24;
+    }
   </style>
 </head>
 
@@ -163,8 +167,15 @@
 <section class="hero">
   <div class="hero-content">
     <h1>Reliable Concrete Work You Can Trust</h1>
-    <p>We deliver strong, high-quality concrete with precision, durability, and professionalism.</p>
-    <a class="btn" href="#contact">Request a Quote</a>
+    <p>We deliver strong, high-quality concrete solutions with precision, durability, and professionalism.</p>
+
+    <a class="btn" href="#contact">
+      Request a Quote (Free up to 35 minutes away)
+    </a>
+
+    <div class="price">
+      Concrete Pricing: $10 per square foot
+    </div>
   </div>
 </section>
 
@@ -181,11 +192,10 @@
 <!-- WORK -->
 <section id="work">
   <h2>Our Projects</h2>
-
   <div class="grid gallery">
-    <img src="images/driveway1.jpg" alt="Driveway Project">
-    <img src="images/slab2.jpg" alt="Concrete Slab">
-    <img src="images/parkinglot1.jpg" alt="Parking Lot">
+    <img src="images/project1.jpg" alt="Project 1">
+    <img src="images/project2.jpg" alt="Project 2">
+    <img src="images/project3.jpg" alt="Project 3">
   </div>
 </section>
 
@@ -193,9 +203,9 @@
 <section id="contact" class="contact">
   <h2>Request a Free Quote</h2>
 
-  <p>Fill out the form below and we will contact you by phone or email.</p>
+  <p>We will contact you by e-mail after you submit your request.</p>
 
-  <form action="https://formspree.io/f/your-id-here" method="POST">
+    <form action="https://formspree.io/f/xojbjweb" method="POST">
     <input type="text" name="name" placeholder="Full Name" required>
     <input type="tel" name="phone" placeholder="Phone Number" required>
     <input type="email" name="email" placeholder="Email Address" required>
