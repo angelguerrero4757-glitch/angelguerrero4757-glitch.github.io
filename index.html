@@ -140,17 +140,19 @@ h2 {
   color: #cbd5e1;
 }
 
-/* GALLERY */
+/* ✅ FIXED GALLERY */
 
 .gallery img {
   width: 100%;
+  height: 220px;
+  object-fit: cover;
   border-radius: 12px;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .gallery img:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 /* CONTACT */
@@ -312,8 +314,6 @@ View Services
 
 <div class="grid">
 
-  <!-- Residential -->
-
   <div class="card" onclick="openService(
     'Residential Concrete',
     [
@@ -330,8 +330,6 @@ View Services
 
   </div>
 
-  <!-- Commercial -->
-
   <div class="card" onclick="openService(
     'Commercial Buildings',
     [
@@ -347,8 +345,6 @@ View Services
     </p>
 
   </div>
-
-  <!-- Parking -->
 
   <div class="card" onclick="openService(
     'Parking Lots',
@@ -368,8 +364,6 @@ View Services
 
 </div>
 
-<!-- DYNAMIC SERVICE GALLERY -->
-
 <div id="serviceGallery" style="display:none; margin-top:50px;">
 
   <h2 id="galleryTitle"></h2>
@@ -385,8 +379,6 @@ View Services
   </div>
 
 </div>
-
-<!-- BEFORE AFTER -->
 
 <div class="slider-container">
 
@@ -411,8 +403,6 @@ View Services
 
 </section>
 
-<!-- GENERAL GALLERY -->
-
 <section>
 
 <h2>Our Work</h2>
@@ -428,8 +418,6 @@ View Services
 </div>
 
 </section>
-
-<!-- CONTACT -->
 
 <section id="contact" class="contact">
 
@@ -463,12 +451,7 @@ View Services
 
   <input type="email" name="email" placeholder="Email Address" required>
 
-  <textarea
-    name="message"
-    rows="5"
-    placeholder="Describe your project..."
-    required
-  ></textarea>
+  <textarea name="message" rows="5" placeholder="Describe your project..." required></textarea>
 
   <button type="submit">
     Request Quote
@@ -494,8 +477,6 @@ View Services
 
 </footer>
 
-<!-- LIGHTBOX -->
-
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
 
 <img id="lightbox-img">
@@ -504,70 +485,41 @@ View Services
 
 <script>
 
-/* SERVICE BUTTONS */
-
 function openService(service, images) {
-
-  // Auto select project type
 
   document.getElementById("projectType").value = service;
 
-  // Title
-
   document.getElementById("galleryTitle").innerText =
     service + " Projects";
-
-  // Gallery
 
   let gallery = document.getElementById("galleryImages");
 
   gallery.innerHTML = "";
 
   images.forEach(img => {
-
     gallery.innerHTML += `
       <img src="${img}" onclick="openLightbox(this.src)">
     `;
-
   });
 
-  // Show section
-
   document.getElementById("serviceGallery").style.display = "block";
-
-  // Scroll
 
   document.getElementById("serviceGallery")
     .scrollIntoView({ behavior: "smooth" });
 
 }
 
-/* BEFORE AFTER */
-
 function moveSlider(el) {
-
-  document.querySelector(".slider-after")
-    .style.width = el.value + "%";
-
+  document.querySelector(".slider-after").style.width = el.value + "%";
 }
 
-/* LIGHTBOX */
-
 function openLightbox(src) {
-
-  document.getElementById("lightbox")
-    .style.display = "flex";
-
-  document.getElementById("lightbox-img")
-    .src = src;
-
+  document.getElementById("lightbox").style.display = "flex";
+  document.getElementById("lightbox-img").src = src;
 }
 
 function closeLightbox() {
-
-  document.getElementById("lightbox")
-    .style.display = "none";
-
+  document.getElementById("lightbox").style.display = "none";
 }
 
 </script>
