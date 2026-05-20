@@ -3,11 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Superb Concrete Co.</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 body {
   margin: 0;
   font-family: Inter, sans-serif;
@@ -15,24 +17,38 @@ body {
   color: white;
 }
 
+/* HEADER */
+
 header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px 10%;
   background: #111827;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.logo { font-weight: 700; }
+.logo {
+  font-weight: 700;
+  font-size: 20px;
+}
 
 nav a {
   color: white;
-  margin-left: 15px;
+  margin-left: 20px;
   text-decoration: none;
   opacity: 0.8;
+  transition: 0.3s;
 }
-nav a:hover { opacity: 1; }
+
+nav a:hover {
+  opacity: 1;
+}
 
 /* HERO */
+
 .hero {
   padding: 120px 10%;
   text-align: center;
@@ -44,7 +60,7 @@ nav a:hover { opacity: 1; }
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.65);
 }
 
 .hero-content {
@@ -52,21 +68,36 @@ nav a:hover { opacity: 1; }
   z-index: 2;
 }
 
-.hero h1 { font-size: 50px; }
-.hero p { color: #cbd5e1; }
+.hero h1 {
+  font-size: 55px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  color: #cbd5e1;
+  font-size: 18px;
+  max-width: 700px;
+  margin: auto;
+}
 
 .btn {
   display: inline-block;
-  margin-top: 20px;
-  padding: 12px 22px;
+  margin-top: 25px;
+  padding: 14px 24px;
   background: #fbbf24;
   color: black;
   font-weight: bold;
   border-radius: 8px;
   text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
 }
 
 /* SECTIONS */
+
 section {
   padding: 80px 10%;
 }
@@ -74,73 +105,105 @@ section {
 h2 {
   text-align: center;
   margin-bottom: 40px;
+  font-size: 36px;
 }
 
-/* SERVICES */
+/* GRID */
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
+/* CARDS */
+
 .card {
   background: #1e293b;
-  padding: 20px;
-  border-radius: 12px;
+  padding: 30px;
+  border-radius: 14px;
   cursor: pointer;
   transition: 0.3s;
+  text-align: center;
 }
+
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   background: #273449;
 }
 
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #cbd5e1;
+}
+
 /* GALLERY */
+
 .gallery img {
   width: 100%;
   border-radius: 12px;
   cursor: pointer;
   transition: 0.3s;
 }
+
 .gallery img:hover {
   transform: scale(1.02);
 }
 
 /* CONTACT */
+
 .contact {
   text-align: center;
   background: #111827;
 }
 
-input, textarea {
+form {
+  max-width: 700px;
+  margin: auto;
+}
+
+input,
+textarea,
+select {
   width: 100%;
-  padding: 12px;
-  margin-top: 10px;
+  padding: 14px;
+  margin-top: 12px;
   border-radius: 8px;
   border: none;
+  font-size: 16px;
+  box-sizing: border-box;
 }
 
 button {
-  margin-top: 15px;
-  padding: 12px 20px;
+  margin-top: 18px;
+  padding: 14px 24px;
   background: #fbbf24;
   border: none;
   font-weight: bold;
   border-radius: 8px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-/* BEFORE AFTER SLIDER */
+button:hover {
+  transform: translateY(-2px);
+}
+
+/* BEFORE AFTER */
+
 .slider-container {
   position: relative;
   max-width: 700px;
-  margin: 40px auto;
+  margin: 50px auto;
   overflow: hidden;
   border-radius: 12px;
 }
 
 .slider-before,
-.slider-after {
+.slider-after img {
   width: 100%;
   display: block;
 }
@@ -155,16 +218,18 @@ button {
 
 .slider-range {
   width: 100%;
+  margin-top: 10px;
 }
 
 /* LIGHTBOX */
+
 .lightbox {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0,0,0,0.92);
   display: none;
   align-items: center;
   justify-content: center;
@@ -177,125 +242,334 @@ button {
   border-radius: 10px;
 }
 
+/* FOOTER */
+
 footer {
   text-align: center;
   padding: 20px;
   color: #94a3b8;
 }
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  section {
+    padding: 60px 7%;
+  }
+
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="logo">Superb Concrete Co.</div>
+
+<div class="logo">
+  Superb Concrete Co.
+</div>
+
 <nav>
   <a href="#services">Services</a>
   <a href="#contact">Quote</a>
 </nav>
+
 </header>
 
 <!-- HERO -->
+
 <section class="hero">
+
 <div class="hero-content">
-  <h1>Reliable Concrete Work You Can Trust</h1>
-  <p>$10 per square foot — Free quotes(must be 35 minutes away or closer if further a "show up" fee of $15 is required)</p>
-  <a class="btn" href="#services">View Services</a>
+
+<h1>
+Reliable Concrete Work You Can Trust
+</h1>
+
+<p>
+$10 per square foot — Free quotes within 35 minutes of Houston.
+</p>
+
+<a class="btn" href="#services">
+View Services
+</a>
+
 </div>
+
 </section>
 
 <!-- SERVICES -->
+
 <section id="services">
+
 <h2>Our Expertise</h2>
 
 <div class="grid">
 
-  <div class="card" onclick="selectService('Residential Concrete')">
-    Residential Concrete
+  <!-- Residential -->
+
+  <div class="card" onclick="openService(
+    'Residential Concrete',
+    [
+      'images/residential1.jpg',
+      'images/residential2.jpg'
+    ]
+  )">
+
+    <h3>Residential Concrete</h3>
+
+    <p>
+      Driveways, patios, sidewalks, slabs, and custom residential projects.
+    </p>
+
   </div>
 
-  <div class="card" onclick="selectService('Commercial Buildings')">
-    Commercial Buildings
+  <!-- Commercial -->
+
+  <div class="card" onclick="openService(
+    'Commercial Buildings',
+    [
+      'images/commercial1.jpg',
+      'images/commercial2.jpg'
+    ]
+  )">
+
+    <h3>Commercial Buildings</h3>
+
+    <p>
+      Reliable concrete work for commercial construction and developments.
+    </p>
+
   </div>
 
-  <div class="card" onclick="selectService('Parking Lots')">
-    Parking Lots
+  <!-- Parking -->
+
+  <div class="card" onclick="openService(
+    'Parking Lots',
+    [
+      'images/parking1.jpg',
+      'images/parking2.jpg'
+    ]
+  )">
+
+    <h3>Parking Lots</h3>
+
+    <p>
+      Durable parking lots, paving, curbs, and large-scale flatwork.
+    </p>
+
   </div>
 
 </div>
 
-<!-- BEFORE / AFTER SLIDER -->
-<div class="slider-container">
-  <img src="images/before.jpg" class="slider-before">
-  <div class="slider-after">
-    <img src="images/after.jpg" class="slider-before">
+<!-- DYNAMIC SERVICE GALLERY -->
+
+<div id="serviceGallery" style="display:none; margin-top:50px;">
+
+  <h2 id="galleryTitle"></h2>
+
+  <div class="grid gallery" id="galleryImages"></div>
+
+  <div style="text-align:center;">
+
+    <a href="#contact" class="btn">
+      Request Quote
+    </a>
+
   </div>
-  <input type="range" min="0" max="100" value="50" class="slider-range" oninput="moveSlider(this)">
+
+</div>
+
+<!-- BEFORE AFTER -->
+
+<div class="slider-container">
+
+  <img src="images/before.jpg" class="slider-before">
+
+  <div class="slider-after">
+
+    <img src="images/after.jpg">
+
+  </div>
+
+  <input
+    type="range"
+    min="0"
+    max="100"
+    value="50"
+    class="slider-range"
+    oninput="moveSlider(this)"
+  >
+
 </div>
 
 </section>
 
-<!-- GALLERY -->
+<!-- GENERAL GALLERY -->
+
 <section>
+
 <h2>Our Work</h2>
+
 <div class="grid gallery">
+
   <img src="images/project1.jpg" onclick="openLightbox(this.src)">
+
   <img src="images/project2.jpg" onclick="openLightbox(this.src)">
+
   <img src="images/project3.jpg" onclick="openLightbox(this.src)">
+
 </div>
+
 </section>
 
 <!-- CONTACT -->
+
 <section id="contact" class="contact">
+
 <h2>Request a Quote</h2>
 
 <form action="https://formspree.io/f/xojbjweb" method="POST">
 
-  <input type="text" id="projectType" name="project" placeholder="Project Type" required>
+  <select id="projectType" name="project" required>
+
+    <option value="">
+      Select Project Type
+    </option>
+
+    <option value="Residential Concrete">
+      Residential Concrete
+    </option>
+
+    <option value="Commercial Buildings">
+      Commercial Buildings
+    </option>
+
+    <option value="Parking Lots">
+      Parking Lots
+    </option>
+
+  </select>
+
   <input type="text" name="name" placeholder="Full Name" required>
+
   <input type="tel" name="phone" placeholder="Phone Number" required>
+
   <input type="email" name="email" placeholder="Email Address" required>
 
-  <textarea name="message" rows="5" placeholder="Describe your project..." required></textarea>
+  <textarea
+    name="message"
+    rows="5"
+    placeholder="Describe your project..."
+    required
+  ></textarea>
 
-  <button type="submit">Request Quote</button>
+  <button type="submit">
+    Request Quote
+  </button>
+
 </form>
 
-<p style="margin-top:20px;">
-📞 (832) 693-5747<br>
+<p style="margin-top:25px;">
+
+📞 (832) 693-5747
+
+<br><br>
+
 📍 Houston, TX
+
 </p>
+
 </section>
 
 <footer>
+
 © 2026 Superb Concrete Co.
+
 </footer>
 
 <!-- LIGHTBOX -->
+
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img">
+
+<img id="lightbox-img">
+
 </div>
 
 <script>
-function selectService(service) {
+
+/* SERVICE BUTTONS */
+
+function openService(service, images) {
+
+  // Auto select project type
+
   document.getElementById("projectType").value = service;
-  document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+
+  // Title
+
+  document.getElementById("galleryTitle").innerText =
+    service + " Projects";
+
+  // Gallery
+
+  let gallery = document.getElementById("galleryImages");
+
+  gallery.innerHTML = "";
+
+  images.forEach(img => {
+
+    gallery.innerHTML += `
+      <img src="${img}" onclick="openLightbox(this.src)">
+    `;
+
+  });
+
+  // Show section
+
+  document.getElementById("serviceGallery").style.display = "block";
+
+  // Scroll
+
+  document.getElementById("serviceGallery")
+    .scrollIntoView({ behavior: "smooth" });
+
 }
 
-/* BEFORE AFTER SLIDER */
+/* BEFORE AFTER */
+
 function moveSlider(el) {
-  document.querySelector(".slider-after").style.width = el.value + "%";
+
+  document.querySelector(".slider-after")
+    .style.width = el.value + "%";
+
 }
 
 /* LIGHTBOX */
+
 function openLightbox(src) {
-  document.getElementById("lightbox").style.display = "flex";
-  document.getElementById("lightbox-img").src = src;
+
+  document.getElementById("lightbox")
+    .style.display = "flex";
+
+  document.getElementById("lightbox-img")
+    .src = src;
+
 }
 
 function closeLightbox() {
-  document.getElementById("lightbox").style.display = "none";
+
+  document.getElementById("lightbox")
+    .style.display = "none";
+
 }
+
 </script>
 
 </body>
