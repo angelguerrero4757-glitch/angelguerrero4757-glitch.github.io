@@ -223,6 +223,38 @@ button:hover {
   margin-top: 10px;
 }
 
+/* SERVICE VIEW (NEW FEATURE) */
+
+.service-view {
+  display: none;
+  margin-top: 40px;
+}
+
+.service-view h3 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.service-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.service-gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.service-gallery img:hover {
+  transform: scale(1.03);
+}
+
 /* LIGHTBOX */
 
 .lightbox {
@@ -290,17 +322,13 @@ footer {
 
 <div class="hero-content">
 
-<h1>
-Work You Can Trust
-</h1>
+<h1>Work You Can Trust</h1>
 
 <p>
-$10 per square foot — Free quotes(Up to 35 minutes away or closer.If further a "show up" fee of $15 is required).
+$10 per square foot — Free quotes within 35 minutes of Houston.
 </p>
 
-<a class="btn" href="#services">
-View Services
-</a>
+<a class="btn" href="#services">View Services</a>
 
 </div>
 
@@ -314,96 +342,40 @@ View Services
 
 <div class="grid">
 
-  <div class="card" onclick="openService(
-    'Residential Concrete',
-    [
-      'images/residential1.jpg',
-      'images/residential2.jpg',
-      'images/residential3.jpg',
-      'images/residential4.jpg',
-      'images/residential5.jpg',
-      'images/residential6.jpg',
-      'images/residential7.jpg',
-      'images/residential8.jpg',
-      'images/residential9.jpg',
-      'images/residential10.jpg'
-    ]
-  )">
-
+  <div class="card" onclick="openService('Residential Concrete','residential')">
     <h3>Residential Concrete</h3>
     <p>Driveways, patios, sidewalks, slabs, and custom residential projects.</p>
-
   </div>
 
-  <div class="card" onclick="openService(
-    'Commercial Buildings',
-    [
-      'images/commercial1.jpg',
-      'images/commercial2.jpg',
-      'images/commercial3.jpg',
-      'images/commercial4.jpg',
-      'images/commercial5.jpg',
-      'images/commercial6.jpg',
-      'images/commercial7.jpg',
-      'images/commercial8.jpg',
-      'images/commercial9.jpg',
-      'images/commercial10.jpg'
-    ]
-  )">
-
+  <div class="card" onclick="openService('Commercial Buildings','commercial')">
     <h3>Commercial Buildings</h3>
     <p>Reliable concrete work for commercial construction and developments.</p>
-
   </div>
 
-  <div class="card" onclick="openService(
-    'Parking Lots',
-    [
-      'images/parking1.jpg',
-      'images/parking2.jpg',
-      'images/parking3.jpg',
-      'images/parking4.jpg',
-      'images/parking5.jpg',
-      'images/parking6.jpg',
-      'images/parking7.jpg',
-      'images/parking8.jpg',
-      'images/parking9.jpg',
-      'images/parking10.jpg'
-    ]
-  )">
-
+  <div class="card" onclick="openService('Parking Lots','parking')">
     <h3>Parking Lots</h3>
     <p>Durable parking lots, paving, curbs, and large-scale flatwork.</p>
-
   </div>
 
 </div>
 
-<div id="serviceGallery" style="display:none; margin-top:50px;">
+<!-- SERVICE VIEW -->
 
-  <h2 id="galleryTitle"></h2>
+<div id="serviceView" class="service-view">
 
-  <div class="grid gallery" id="galleryImages"></div>
+  <h3 id="serviceTitle"></h3>
 
-  <div style="text-align:center;">
+  <div id="serviceGallery" class="service-gallery"></div>
+
+  <div style="text-align:center; margin-top:20px;">
     <a href="#contact" class="btn">Request Quote</a>
   </div>
 
 </div>
 
-<div class="slider-container">
-
-  <img src="images/before.jpg" class="slider-before">
-
-  <div class="slider-after">
-    <img src="images/after.jpg">
-  </div>
-
-  <input type="range" min="0" max="100" value="50" class="slider-range" oninput="moveSlider(this)">
-
-</div>
-
 </section>
+
+<!-- CONTACT -->
 
 <section id="contact" class="contact">
 
@@ -447,38 +419,74 @@ View Services
 © 2026 Superb Concrete Co.
 </footer>
 
+<!-- LIGHTBOX -->
+
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
 <img id="lightbox-img">
 </div>
 
 <script>
 
-function openService(service, images) {
+const services = {
+  residential: [
+    'images/residential1.jpg',
+    'images/residential2.jpg',
+    'images/residential3.jpg',
+    'images/residential4.jpg',
+    'images/residential5.jpg',
+    'images/residential6.jpg',
+    'images/residential7.jpg',
+    'images/residential8.jpg',
+    'images/residential9.jpg',
+    'images/residential10.jpg'
+  ],
+  commercial: [
+    'images/commercial1.jpg',
+    'images/commercial2.jpg',
+    'images/commercial3.jpg',
+    'images/commercial4.jpg',
+    'images/commercial5.jpg',
+    'images/commercial6.jpg',
+    'images/commercial7.jpg',
+    'images/commercial8.jpg',
+    'images/commercial9.jpg',
+    'images/commercial10.jpg'
+  ],
+  parking: [
+    'images/parking1.jpg',
+    'images/parking2.jpg',
+    'images/parking3.jpg',
+    'images/parking4.jpg',
+    'images/parking5.jpg',
+    'images/parking6.jpg',
+    'images/parking7.jpg',
+    'images/parking8.jpg',
+    'images/parking9.jpg',
+    'images/parking10.jpg'
+  ]
+};
 
-  document.getElementById("projectType").value = service;
+function openService(name, key) {
 
-  document.getElementById("galleryTitle").innerText =
-    service + " Projects";
+  document.getElementById("serviceTitle").innerText = name;
 
-  let gallery = document.getElementById("galleryImages");
+  document.getElementById("projectType").value = name;
+
+  const gallery = document.getElementById("serviceGallery");
 
   gallery.innerHTML = "";
 
-  images.forEach(img => {
+  services[key].forEach(img => {
     gallery.innerHTML += `
       <img src="${img}" onclick="openLightbox(this.src)">
     `;
   });
 
-  document.getElementById("serviceGallery").style.display = "block";
+  document.getElementById("serviceView").style.display = "block";
 
-  document.getElementById("serviceGallery")
+  document.getElementById("serviceView")
     .scrollIntoView({ behavior: "smooth" });
 
-}
-
-function moveSlider(el) {
-  document.querySelector(".slider-after").style.width = el.value + "%";
 }
 
 function openLightbox(src) {
