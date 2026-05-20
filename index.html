@@ -347,8 +347,6 @@ $10 per square foot — Free quotes (Up to 35 minutes away or closer. If further
     <p>Driveways, patios, sidewalks, slabs, and custom residential projects.</p>
   </div>
 
-  
-
   <div class="card" onclick="openService('Parking Lots','parking')">
     <h3>Parking Lots</h3>
     <p>Speed bumps, Parking blocks, curbs, and large-scale paving.</p>
@@ -378,7 +376,16 @@ $10 per square foot — Free quotes (Up to 35 minutes away or closer. If further
 
 <h2>Request a Quote</h2>
 
-<form action="https://formspree.io/f/xojbjweb" method="POST">
+<form action="https://formsubmit.co/superbconcrete@protonmail.com" method="POST">
+
+  <!-- Spam protection -->
+  <input type="text" name="_honey" style="display:none">
+
+  <!-- Redirect after successful submission -->
+  <input type="hidden" name="_next" value="https://superbconcrete.cc/thanks.html">
+
+  <!-- Email subject -->
+  <input type="hidden" name="_subject" value="New Quote Request - Superb Concrete">
 
   <select id="projectType" name="project" required>
 
@@ -389,9 +396,9 @@ $10 per square foot — Free quotes (Up to 35 minutes away or closer. If further
 
   </select>
 
-  <input type="text" name="name" placeholder="Full Name" required>
-  <input type="tel" name="phone" placeholder="Phone Number" required>
-  <input type="email" name="email" placeholder="Email Address" required>
+  <input type="text" name="name" placeholder="Full Name" required">
+  <input type="tel" name="phone" placeholder="Phone Number" required">
+  <input type="email" name="email" placeholder="Email Address" required">
 
   <textarea name="message" rows="5" placeholder="Describe your project..." required></textarea>
 
