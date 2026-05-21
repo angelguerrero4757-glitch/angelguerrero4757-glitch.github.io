@@ -344,7 +344,9 @@ Free quotes (Up to 35 minutes away or closer. If further a "show up" fee of $15 
 
   <input type="hidden" name="_subject" value="New Quote Request - Superb Concrete">
 
-  <select id="projectType" name="project" required>
+  <!-- PROJECT TYPE -->
+
+  <select id="projectType" name="project" required onchange="updateProjectOptions()">
 
     <option value="">Select Project Type</option>
 
@@ -353,8 +355,18 @@ Free quotes (Up to 35 minutes away or closer. If further a "show up" fee of $15 
 
   </select>
 
+  <!-- NEW PROJECT DETAILS -->
+
+  <select id="projectDetail" name="project_detail" required>
+
+    <option value="">Select Project Detail</option>
+
+  </select>
+
   <input type="text" name="name" placeholder="Full Name" required>
+
   <input type="tel" name="phone" placeholder="Phone Number" required>
+
   <input type="email" name="email" placeholder="Email Address" required>
 
   <textarea name="message" rows="5" placeholder="Describe your project..." required></textarea>
@@ -415,11 +427,61 @@ const services = {
   ]
 };
 
+function updateProjectOptions() {
+
+  const projectType = document.getElementById("projectType").value;
+
+  const projectDetail = document.getElementById("projectDetail");
+
+  projectDetail.innerHTML = '<option value="">Select Project Detail</option>';
+
+  let options = [];
+
+  if(projectType === "Residential Concrete") {
+
+    options = [
+      "Foundation",
+      "Driveway",
+      "Patio",
+      "Sidewalk",
+      "Fence",
+      "Custom Project"
+    ];
+
+  }
+
+  else if(projectType === "Parking Lots") {
+
+    options = [
+      "Speed Bumps",
+      "Parking Blocks",
+      "Curbs",
+      "Large-Scale Paving"
+    ];
+
+  }
+
+  options.forEach(option => {
+
+    const newOption = document.createElement("option");
+
+    newOption.value = option;
+
+    newOption.textContent = option;
+
+    projectDetail.appendChild(newOption);
+
+  });
+
+}
+
 function openService(name, key) {
 
   document.getElementById("serviceTitle").innerText = name;
 
   document.getElementById("projectType").value = name;
+
+  updateProjectOptions();
 
   const gallery = document.getElementById("serviceGallery");
 
@@ -439,12 +501,17 @@ function openService(name, key) {
 }
 
 function openLightbox(src) {
+
   document.getElementById("lightbox").style.display = "flex";
+
   document.getElementById("lightbox-img").src = src;
+
 }
 
 function closeLightbox() {
+
   document.getElementById("lightbox").style.display = "none";
+
 }
 
 </script>
