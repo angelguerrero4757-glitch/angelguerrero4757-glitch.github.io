@@ -47,20 +47,16 @@ nav a:hover {
   opacity: 1;
 }
 
-/* HERO */
+/* HERO (UPDATED PREMIUM LOOK) */
 
 .hero {
-  padding: 120px 10%;
+  padding: 140px 10%;
   text-align: center;
-  background: url('images/workers.jpg') center/cover;
+  background: 
+    linear-gradient(rgba(11,18,32,0.88), rgba(11,18,32,0.88)),
+    url('images/logo.png') center/420px no-repeat;
+  background-color: #0b1220;
   position: relative;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.65);
 }
 
 .hero-content {
@@ -68,19 +64,10 @@ nav a:hover {
   z-index: 2;
 }
 
-/* NEW HERO LOGO */
-
-.hero-logo {
-  width: 180px;
-  max-width: 80%;
-  height: auto;
-  margin-bottom: 25px;
-  filter: drop-shadow(0 0 12px rgba(255,255,255,0.18));
-}
-
 .hero h1 {
   font-size: 55px;
   margin-bottom: 20px;
+  letter-spacing: 1px;
 }
 
 .hero p {
@@ -88,6 +75,7 @@ nav a:hover {
   font-size: 18px;
   max-width: 700px;
   margin: auto;
+  line-height: 1.6;
 }
 
 .btn {
@@ -150,21 +138,6 @@ h2 {
   color: #cbd5e1;
 }
 
-/* GALLERY */
-
-.gallery img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.gallery img:hover {
-  transform: scale(1.03);
-}
-
 /* CONTACT */
 
 .contact {
@@ -204,67 +177,6 @@ button:hover {
   transform: translateY(-2px);
 }
 
-/* BEFORE AFTER */
-
-.slider-container {
-  position: relative;
-  max-width: 700px;
-  margin: 50px auto;
-  overflow: hidden;
-  border-radius: 12px;
-}
-
-.slider-before,
-.slider-after img {
-  width: 100%;
-  display: block;
-}
-
-.slider-after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  overflow: hidden;
-}
-
-.slider-range {
-  width: 100%;
-  margin-top: 10px;
-}
-
-/* SERVICE VIEW (NEW FEATURE) */
-
-.service-view {
-  display: none;
-  margin-top: 40px;
-}
-
-.service-view h3 {
-  text-align: center;
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-
-.service-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-}
-
-.service-gallery img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.service-gallery img:hover {
-  transform: scale(1.03);
-}
-
 /* LIGHTBOX */
 
 .lightbox {
@@ -302,10 +214,6 @@ footer {
     font-size: 38px;
   }
 
-  .hero-logo {
-    width: 140px;
-  }
-
   section {
     padding: 60px 7%;
   }
@@ -335,10 +243,6 @@ footer {
 <section class="hero">
 
 <div class="hero-content">
-
-<!-- NEW LOGO -->
-
-<img src="images/logo.png" alt="Superb Concrete Logo" class="hero-logo">
 
 <h1>Work You Can Trust</h1>
 
@@ -396,13 +300,10 @@ Free quotes (Up to 35 minutes away or closer. If further a "show up" fee of $15 
 
 <form action="https://formsubmit.co/superbconcreteco@gmail.com" method="POST">
 
-  <!-- Spam protection -->
   <input type="text" name="_honey" style="display:none">
 
-  <!-- Redirect after successful submission -->
   <input type="hidden" name="_next" value="https://superbconcrete.cc/thanks.html">
 
-  <!-- Email subject -->
   <input type="hidden" name="_subject" value="New Quote Request - Superb Concrete">
 
   <select id="projectType" name="project" required>
