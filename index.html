@@ -47,15 +47,14 @@ nav a:hover {
   opacity: 1;
 }
 
-/* HERO (UPDATED PREMIUM LOOK) */
+/* HERO */
 
 .hero {
-  padding: 140px 10%;
+  padding: 180px 10%;
   text-align: center;
-  background: 
-    linear-gradient(rgba(11,18,32,0.88), rgba(11,18,32,0.88)),
-    url('images/logo.png') center/420px no-repeat;
-  background-color: #0b1220;
+  background:
+    linear-gradient(rgba(11,18,32,0.78), rgba(11,18,32,0.78)),
+    url('images/logo.png') center center/cover no-repeat;
   position: relative;
 }
 
@@ -177,6 +176,38 @@ button:hover {
   transform: translateY(-2px);
 }
 
+/* SERVICE VIEW */
+
+.service-view {
+  display: none;
+  margin-top: 40px;
+}
+
+.service-view h3 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.service-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.service-gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.service-gallery img:hover {
+  transform: scale(1.03);
+}
+
 /* LIGHTBOX */
 
 .lightbox {
@@ -209,6 +240,10 @@ footer {
 /* MOBILE */
 
 @media(max-width:768px){
+
+  .hero {
+    padding: 140px 7%;
+  }
 
   .hero h1 {
     font-size: 38px;
@@ -247,7 +282,7 @@ footer {
 <h1>Work You Can Trust</h1>
 
 <p>
-Free quotes (Up to 35 minutes away or closer. If further a "show up" fee of $15 is required) Houston, Tx(77502).
+Free quotes (Up to 35 minutes away or closer. If further a "show up" fee of $15 is required) Houston, Tx (77502).
 </p>
 
 <a class="btn" href="#services">View Services</a>
@@ -271,7 +306,7 @@ Free quotes (Up to 35 minutes away or closer. If further a "show up" fee of $15 
 
   <div class="card" onclick="openService('Parking Lots','parking')">
     <h3>Parking Lots</h3>
-    <p>Speed bumps, Parking blocks, curbs, and large-scale paving.</p>
+    <p>Speed bumps, parking blocks, curbs, and large-scale paving.</p>
   </div>
 
 </div>
