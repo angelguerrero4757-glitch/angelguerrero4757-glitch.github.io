@@ -302,13 +302,13 @@ Free quotes (Up to 55 minutes away or closer. If further a "show up" fee is requ
 
 <div class="grid">
 
-  <div class="card" onclick="openService('Residential Concrete','residential')">
+  <div class="card" onclick="openService('Residential Projects','residential')">
     <h3>Residential Projects</h3>
     <p>Foundation, driveways, patios, sidewalks, fences, and custom projects.</p>
   </div>
 
-  <div class="card" onclick="openService('Parking Lots','parking')">
-    <h3>Parking Lots</h3>
+  <div class="card" onclick="openService('Commercial Projects','commercial')">
+    <h3>Commercial Projects</h3>
     <p>Speed bumps, parking blocks, curbs, sidewalks, large-scale paving.</p>
   </div>
 
@@ -351,7 +351,7 @@ Free quotes (Up to 55 minutes away or closer. If further a "show up" fee is requ
     <option value="">Select Project Type</option>
 
     <option value="Residential Concrete">Residential Project</option>
-    <option value="Parking Lots">Parking Lots</option>
+    <option value="Commercial Projects">Commercial Projects</option>
 
   </select>
 
@@ -455,7 +455,7 @@ function updateProjectOptions() {
 
   }
 
-  else if(projectType === "Parking Lots") {
+  else if(projectType === "Commercial Concrete") {
 
     options = [
       "Speed Bumps",
